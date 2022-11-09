@@ -32,7 +32,7 @@ const BottomBar = () => {
         animate={{ x: 0, opacity: 1 }}
         initial={{ x: 100, opacity: 0 }}
         transition={{ delay: 0.9, duration: 0.3 }}
-        className='flex justify-center items-baseline gap-20 uppercase'>
+        className='hidden md:flex justify-center items-baseline gap-20 uppercase'>
         {navigation.map((item: NavigationPage) =>
           item === content ? (
             <ActiveItem
