@@ -1,18 +1,16 @@
 import Head from 'next/head';
-import TopBar from '../Components/TopBar';
+import TopBar from '../components/TopBar';
 import { useAtom } from 'jotai';
 import { prefersDarkAtom } from '../lib/atoms';
 import { useEffect } from 'react';
-import ClientOnly from '../Components/ClientOnly';
-import Content from '../Components/Content';
-import BottomBar from '../Components/BottomBar';
+import ClientOnly from '../components/ClientOnly';
+import Content from '../components/Content';
+import BottomBar from '../components/BottomBar';
 
 export default function Index() {
   const [prefersDark, setPrefersDark] = useAtom(prefersDarkAtom);
 
-  /*   useEffect(() => {
-    setPrefersDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
-  }); */
+  /* TODO: Mobile view */
 
   console.log(prefersDark);
 
@@ -20,14 +18,14 @@ export default function Index() {
     <ClientOnly>
       <div className={prefersDark ? 'dark' : 'light'}>
         <div className='bg-[#f8f8f8] dark:bg-[#121212]'>
-          <div className='max-w-7xl min-h-screen mx-auto flex flex-col gap-28 justify-center'>
+          <div className='max-w-7xl p-12 min-h-screen mx-auto flex flex-col gap-20 justify-between'>
             {/* Top Bar section */}
             <div className='flex items-center justify-between'>
               <TopBar />
             </div>
 
             {/* Main content section */}
-            <main>
+            <main className='flex flex-1'>
               <Content />
             </main>
 
