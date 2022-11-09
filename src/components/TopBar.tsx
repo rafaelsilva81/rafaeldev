@@ -46,6 +46,9 @@ const TopBar = () => {
       </div>
       {/* Technologies */}
       <div className='flex flex-row justify-center items-center gap-4'>
+
+        {/* TODO: alter nodejs icon (JS logo) */}
+        {/* TODO: componentization */}
         <div className='flex items-center dark:bg-white rounded-lg bg-black'>
           <Image
             width={44}
@@ -72,7 +75,7 @@ const TopBar = () => {
           />
         </div>
 
-        {/* Ts icon is different */}
+        {/* TODO: Get a better TS Icon */}
         <Image
           width={44}
           src={TsIcon}
