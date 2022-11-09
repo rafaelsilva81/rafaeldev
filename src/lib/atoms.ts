@@ -8,7 +8,7 @@ const colorsAtom = atom([
   '#16A34A', // tailwind green-600
   '#0284C7', // tailwind sky-600 (blue)
   '#6366f1', // tailwind indigo-500
-  '#7C3AED', // tailwind violet-600
+  '#a855f7', // tailwind purple-500
 ]);
 
 const selectedAtom = atomWithStorage('selected_color', 0);

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import NextIcon from '../assets/NextIcon.svg';
 import TsIcon from '../assets/TsIcon.svg';
 import ReactIcon from '../assets/ReactIcon.svg';
@@ -6,16 +5,12 @@ import NodeIcon from '../assets/NodeIcon.svg';
 import { ProfileIcon } from './common/ProfileIcon';
 import { useAtom } from 'jotai';
 import { colorsAtom, selectedAtom } from '../lib/atoms';
+import TechIcon from './common/TechIcon';
+import { motion } from 'framer-motion';
 
 const TopBar = () => {
   const [colors] = useAtom(colorsAtom);
   const [selected, setSelected] = useAtom(selectedAtom);
-
-  const iconStyle = {
-    '&:hover': {
-      color: colors[selected],
-    },
-  };
 
   const handleColorChange = () => {
     /* loop the array */
@@ -30,11 +25,24 @@ const TopBar = () => {
   return (
     <>
       {/* Logo */}
-      <div
+      <motion.div
+        animate={{ x: 0, opacity: 1 }}
+        initial={{ x: 100, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
         className='flex justify-center items-center gap-2 cursor-pointer'
         onClick={handleColorChange}>
-        <ProfileIcon color={colors[selected]} />
-        <span className='text-2xl text-black dark:text-white'>
+        <div className='hidden md:block'>
+          <ProfileIcon color={colors[selected]} />
+        </div>
+
+        <div className='block md:hidden'>
+          <ProfileIcon
+            color={colors[selected]}
+            size={40}
+          />
+        </div>
+        <span className='text-xl md:text-2xl text-dark dark:text-light'>
           rafael
           <span
             className='font-bold'
@@ -43,45 +51,16 @@ const TopBar = () => {
           </span>
           silva
         </span>
-      </div>
+      </motion.div>
       {/* Technologies */}
-      <div className='flex flex-row justify-center items-center gap-4'>
-
+      <div className='md:flex flex-row items-center gap-4 hidden'>
         {/* TODO: alter nodejs icon (JS logo) */}
         {/* TODO: componentization */}
-        <div className='flex items-center dark:bg-white rounded-lg bg-black'>
-          <Image
-            width={44}
-            src={NodeIcon}
-            alt='NodeJS'
-            className='dark:invert-0 invert'
-          />
-        </div>
 
-        <div className='flex items-center dark:bg-white rounded-lg bg-black'>
-          <Image
-            width={44}
-            src={ReactIcon}
-            alt='NodeJS'
-            className='dark:invert-0 invert'
-          />
-        </div>
-        <div className='flex items-center dark:bg-white rounded-lg bg-black'>
-          <Image
-            width={44}
-            src={NextIcon}
-            alt='NodeJS'
-            className='dark:invert-0 invert'
-          />
-        </div>
-
-        {/* TODO: Get a better TS Icon */}
-        <Image
-          width={44}
-          src={TsIcon}
-          alt='NodeJS'
-          className='dark:invert-0 invert'
-        />
+        <TechIcon icon={NodeIcon} />
+        <TechIcon icon={ReactIcon} />
+        <TechIcon icon={NextIcon} />
+        <TechIcon icon={TsIcon} />
       </div>
     </>
   );

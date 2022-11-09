@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Rajdhani", "sans-serif"],
+      },
+      colors: {
+        'light': '#f8f8f8',
+        'dark': '#181818',
       }
     },
   },
