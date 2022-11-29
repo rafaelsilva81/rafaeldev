@@ -89,8 +89,9 @@ const PortfolioNav = () => {
                     <Menu.Item key={'resume'}>
                       <Link
                         href='/resume.pdf'
-                        target='_blank'
-                      />
+                        target='_blank'>
+                        resume
+                      </Link>
                     </Menu.Item>
                   </Menu.Items>
                 </motion.div>
