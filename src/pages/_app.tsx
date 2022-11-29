@@ -2,6 +2,9 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
+import { createContext } from 'react';
+import { prefersDarkAtom } from '../lib/atoms';
+import { useAtom } from 'jotai';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

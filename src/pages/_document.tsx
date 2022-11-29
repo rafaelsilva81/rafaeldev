@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-title-in-document-head */
+import { useAtom } from 'jotai';
 import { Html, Main, Head, NextScript } from 'next/document';
+import { prefersDarkAtom } from '../lib/atoms';
 
 export default function Document() {
   return (

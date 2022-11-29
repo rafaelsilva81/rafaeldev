@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 
 export default function ClientOnly({
   children,
+  className,
   ...delegated
 }: {
   children: React.ReactNode;
+  className?: string;
 }) {
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
@@ -16,5 +18,11 @@ export default function ClientOnly({
   if (!hasMounted) {
     return null;
   }
-  return <div {...delegated}>{children}</div>;
+  return (
+    <div
+      className={className || ''}
+      {...delegated}>
+      {children}
+    </div>
+  );
 }
