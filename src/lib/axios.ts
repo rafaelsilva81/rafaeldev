@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://api.github.com',
+  baseURL: process.env.STRAPI_API_URL || 'http://localhost:1337/api',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 export default api;

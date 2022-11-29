@@ -11,7 +11,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ContactElement from './common/ContactElement';
 import { motion } from 'framer-motion';
 
-const Content = () => {
+const PortfolioContent = () => {
   const [page] = useAtom(contentAtom);
 
   console.log(page);
@@ -142,4 +142,4 @@ const ContactContent = () => {
   );
 };
 
-export default Content;
+export default PortfolioContent;
