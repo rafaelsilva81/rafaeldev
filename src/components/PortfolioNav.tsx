@@ -7,10 +7,10 @@ import { faBars, faX as faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-type NavigationPage = 'home' | 'about' | 'contact';
+type NavigationPage = 'home' | 'about' | 'contact' | 'projects';
 
 const PortfolioNav = () => {
-  const navigation: NavigationPage[] = ['home', 'about', 'contact'];
+  const navigation: NavigationPage[] = ['home', 'about', 'contact', 'projects'];
   const [colors] = useAtom(colorsAtom);
   const [selected] = useAtom(selectedAtom);
   const [content, setContent] = useAtom(contentAtom);
@@ -40,12 +40,6 @@ const PortfolioNav = () => {
             </span>
           )
         )}
-        <span
-          key={'resume-lg'}
-          className='text-2xl text-black dark:text-white cursor-pointer hover:font-semibold'
-          onClick={() => window.open('/resume.pdf', '_blank')}>
-          resume
-        </span>
       </motion.div>
 
       {/*  menu for mobile */}
@@ -86,13 +80,6 @@ const PortfolioNav = () => {
                         </Menu.Item>
                       )
                     )}
-                    <Menu.Item key={'resume'}>
-                      <Link
-                        href='/resume.pdf'
-                        target='_blank'>
-                        resume
-                      </Link>
-                    </Menu.Item>
                   </Menu.Items>
                 </motion.div>
               )}

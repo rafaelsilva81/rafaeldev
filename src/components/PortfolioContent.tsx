@@ -10,6 +10,10 @@ import {
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ContactElement from './common/ContactElement';
 import { motion } from 'framer-motion';
+import useSWR from 'swr';
+import { URL } from 'url';
+import ProjectCard from './ProjectCard';
+import { useRouter } from 'next/router';
 
 const PortfolioContent = () => {
   const [page] = useAtom(contentAtom);
@@ -21,16 +25,18 @@ const PortfolioContent = () => {
       initial={{ opacity: 0 }}
       transition={{ delay: 0.6, duration: 0.3 }}
       className='flex flex-col justify-center flex-wrap
-    text-dark dark:text-light gap-2 text-justify md:w-4/5'>
+    text-dark dark:text-light gap-2 text-justify'>
       {page === 'home' && <HomeContent />}
       {page === 'about' && <AboutContent />}
       {page === 'contact' && <ContactContent />}
+      {page === 'projects' && <ProjectsContent />}
     </motion.div>
   );
 };
 
 const HomeContent = () => {
   const [, setPage] = useAtom(contentAtom);
+  const router = useRouter();
 
   return (
     <>
@@ -61,6 +67,19 @@ const HomeContent = () => {
             {' '}
             contact me!{' '}
           </button>
+        </BoldText>
+      </span>
+
+      <span className='text-xl md:text-xl font-semibold text-justify'>
+        <BoldText>
+          <a
+            className='hover:opacity-80 transition ease-in-out bg-neutral-900 dark:bg-neutral-100 p-2 rounded-md'
+            href='/resume.pdf'
+            download
+            target='_blank'
+            rel='noreferrer'>
+            Download my CV
+          </a>
         </BoldText>
       </span>
     </>
@@ -137,6 +156,47 @@ const ContactContent = () => {
           link='mailto:rafaelgaldinosilva81@gmail.com'
           name='rafaelgaldinosilva81@gmail.com'
         />
+      </div>
+    </>
+  );
+};
+
+const ProjectsContent = () => {
+  function fetcher(url: URL) {
+    return fetch(url).then((r) => r.json());
+  }
+  // Fetch projects from API
+  const { data, error, isLoading } = useSWR('/api/projects', fetcher);
+
+  if (isLoading) return <div className='text-xl'>Loading...</div>;
+
+  if (error) return <div className='text-xl'>Failed to load</div>;
+
+  return (
+    <>
+      {/* Paragraph (text) */}
+      <span className='text-xl md:text-xl font-semibold text-justify'>
+        Here are some of my projects, you can check more of them on my
+        <BoldText>
+          <a
+            className='hover:opacity-80 transition ease-in-out'
+            href='https://github.com/rafaelsilva81'
+            target='_blank'
+            rel='noreferrer'>
+            {' '}
+            Github!{' '}
+          </a>
+        </BoldText>
+      </span>
+
+      {/* Projects */}
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+        {data.map((project: Project, index: number) => (
+          <ProjectCard
+            key={index}
+            project={project}
+          />
+        ))}
       </div>
     </>
   );
