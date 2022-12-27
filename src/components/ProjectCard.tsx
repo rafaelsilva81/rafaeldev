@@ -18,7 +18,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <div
         id='projectCard'
         className='mb-2'>
-        <div className='flex flex-col dark:bg-neutral-200 bg-neutral-900 rounded-md h-52 text-right p-1'>
+        <div className='flex flex-col dark:bg-neutral-200 bg-neutral-900 rounded-md md:h-52 h-72 text-right p-1'>
           {/* Grid with project info and image */}
           <div className='grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full'>
             {/* Project info with padding */}
