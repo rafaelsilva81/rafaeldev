@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     loader: "default",
-    domains: ['i.imgur.com', 'localhost'],
+    domains: ['i.imgur.com', 'localhost', 'firebasestorage.googleapis.com'],
   }
 }
 

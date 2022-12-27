@@ -13,7 +13,7 @@ const colorsAtom = atom([
 
 const selectedAtom = atomWithStorage('selected_color', 0);
 
-const contentAtom = atom<'home' | 'about' | 'contact'>('home');
+const contentAtom = atom<'home' | 'about' | 'contact' | 'projects'>('home');
 
 const prefersDarkAtom = atomWithStorage<boolean>('color_theme', false);
 
