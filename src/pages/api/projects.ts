@@ -1,10 +1,11 @@
-import { z } from 'zod';
-import { NextApiRequest, NextApiResponse } from 'next';
-import firestore from '../../lib/db';
+import { z } from "zod";
+import { NextApiRequest, NextApiResponse } from "next";
+import firestore from "../../lib/db";
 
 const Project = z.object({
   name: z.string(),
-  description: z.string(),
+  description_pt: z.string(),
+  description_en: z.string(),
   link: z.string().optional(),
   img: z.string(),
 });
@@ -12,7 +13,7 @@ const Project = z.object({
 const Projects = z.array(Project);
 
 const getProjects = async (req: NextApiRequest, res: NextApiResponse) => {
-  const projects = await firestore.collection('projects').get();
+  const projects = await firestore.collection("projects").get();
 
   // validate the data
   const data = projects.docs.map((doc) => doc.data());
