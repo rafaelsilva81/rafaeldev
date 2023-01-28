@@ -1,8 +1,11 @@
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faFile } from "@fortawesome/free-solid-svg-icons";
 import { useAtom } from "jotai";
 import { useRouter } from "next/router";
 import React from "react";
 import { contentAtom, preferredLanguageAtom } from "../../lib/atoms";
 import BoldText from "../common/BoldText";
+import ContactElement from "../common/ContactElement";
 
 const HomeContent = () => {
   const [, setPage] = useAtom(contentAtom);
@@ -42,19 +45,23 @@ const HomeContent = () => {
           </BoldText>
         </span>
 
-        <span className="text-xl font-semibold text-justify md:text-xl">
-          <BoldText>
-            <a
-              className="p-2 transition ease-in-out rounded-md hover:opacity-80 bg-neutral-900 dark:bg-neutral-100"
-              href="/resume.pdf"
-              download
-              target="_blank"
-              rel="noreferrer"
-            >
-              Download my CV
-            </a>
-          </BoldText>
-        </span>
+        <div className="flex flex-col gap-2 mt-4">
+          <ContactElement
+            icon={faLinkedinIn}
+            link="https://www.linkedin.com/in/rafaelgaldinosilva81/"
+            name="/rafaelgaldinosilva81"
+          />
+          <ContactElement
+            icon={faGithub}
+            link="https://www.github.com/rafaelsilva81/"
+            name="/rafaelsilva81"
+          />
+          <ContactElement
+            icon={faFile}
+            link={"/resume.pdf"}
+            name="curriculum vitae"
+          />
+        </div>
       </>
     );
   } else {
@@ -91,19 +98,23 @@ const HomeContent = () => {
           </BoldText>
         </span>
 
-        <span className="text-xl font-semibold text-justify md:text-xl">
-          <BoldText>
-            <a
-              className="p-2 transition ease-in-out rounded-md hover:opacity-80 bg-neutral-900 dark:bg-neutral-100"
-              href="/curriculo.pdf"
-              download
-              target="_blank"
-              rel="noreferrer"
-            >
-              Baixe meu CV
-            </a>
-          </BoldText>
-        </span>
+        <div className="flex flex-col gap-2 mt-4">
+          <ContactElement
+            icon={faLinkedinIn}
+            link="https://www.linkedin.com/in/rafaelgaldinosilva81/"
+            name="/rafaelgaldinosilva81"
+          />
+          <ContactElement
+            icon={faGithub}
+            link="https://www.github.com/rafaelsilva81/"
+            name="/rafaelsilva81"
+          />
+          <ContactElement
+            icon={faFile}
+            link="/curriculo.pdf"
+            name="curriculum vitae"
+          />
+        </div>
       </>
     );
   }
