@@ -10,13 +10,12 @@ import { motion } from "framer-motion";
 import { Menu } from "@headlessui/react";
 import { faBars, faX as faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 
-type NavigationPage = "home" | "about" | "contact" | "projects";
+type NavigationPage = "home" | "about" | "contact";
 
 const PortfolioNav = () => {
   const [lang, setLang] = useAtom(preferredLanguageAtom);
-  const navigation: NavigationPage[] = ["home", "about", "contact", "projects"];
+  const navigation: NavigationPage[] = ["home", "about", "contact"];
   const navigationPt = ["início", "sobre", "contato", "projetos"];
   const [colors] = useAtom(colorsAtom);
   const [selected] = useAtom(selectedAtom);
