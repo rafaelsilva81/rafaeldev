@@ -1,8 +1,6 @@
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
 import { useAtom } from "jotai";
-import { useRouter } from "next/router";
-import React from "react";
 import { contentAtom, preferredLanguageAtom } from "../../lib/atoms";
 import BoldText from "../common/BoldText";
 import ContactElement from "../common/ContactElement";
@@ -31,7 +29,7 @@ const HomeContent = () => {
           solutons using the latest technologies.
         </span>
 
-        <span className="text-xl font-semibold text-justify md:text-xl">
+        {/* <span className="text-xl font-semibold text-justify md:text-xl">
           {`I'm currently looking for an Trainee or Junior position, if you are
           interested, please `}
           <BoldText>
@@ -43,7 +41,7 @@ const HomeContent = () => {
               contact me!{" "}
             </button>
           </BoldText>
-        </span>
+        </span> */}
 
         <div className="flex flex-col gap-2 mt-4">
           <ContactElement
@@ -85,7 +83,7 @@ const HomeContent = () => {
           recentes.
         </span>
 
-        <span className="text-xl font-semibold text-justify md:text-xl">
+        {/* <span className="text-xl font-semibold text-justify md:text-xl">
           {`Atualmente estou procurando por uma posição de Trainee ou Júnior, se você estiver interessado, por favor `}
           <BoldText>
             <button
@@ -96,7 +94,7 @@ const HomeContent = () => {
               entre em contato!{" "}
             </button>
           </BoldText>
-        </span>
+        </span> */}
 
         <div className="flex flex-col gap-2 mt-4">
           <ContactElement
