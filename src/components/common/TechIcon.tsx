@@ -1,20 +1,9 @@
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Image from "next/image";
 
-const TechIcon = ({ icon }: { icon: string }) => {
-  return (
-    <motion.div
-      animate={{ x: 0, opacity: 1 }}
-      initial={{ x: -100, opacity: 0 }}
-      transition={{ delay: 0.3, duration: 0.3 }}
-      className='flex justify-center items-center dark:bg-light rounded-lg bg-dark w-10 h-10 p-2'>
-      <Image
-        src={icon}
-        alt={icon}
-        className='dark:invert-0 invert'
-      />
-    </motion.div>
-  );
-};
+const TechIcon = ({ icon, label }: { icon: string; label: string }) => (
+  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark p-2 dark:bg-light">
+    <Image src={icon} alt={label} className="invert dark:invert-0" />
+  </div>
+);
 
 export default TechIcon;

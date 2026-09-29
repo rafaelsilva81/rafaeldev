@@ -1,11 +1,8 @@
-/* eslint-disable @next/next/no-title-in-document-head */
-import { useAtom } from 'jotai';
 import { Html, Main, Head, NextScript } from 'next/document';
-import { prefersDarkAtom } from '../lib/atoms';
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang='pt-BR'>
       <Head>
         <link
           rel='preconnect'
@@ -14,10 +11,10 @@ export default function Document() {
         <link
           rel='preconnect'
           href='https://fonts.gstatic.com'
-          crossOrigin=''
+          crossOrigin='anonymous'
         />
         <link
-          href='https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap'
+          href='https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap'
           rel='stylesheet'
         />
       </Head>

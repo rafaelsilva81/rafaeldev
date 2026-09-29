@@ -2,9 +2,6 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
-import { createContext } from 'react';
-import { prefersDarkAtom } from '../lib/atoms';
-import { useAtom } from 'jotai';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           name='description'
-          content='Rafael Galdino da Silva, Fullstack Developer, NodeJS, ReactJS, NextJS, Typescript and more'
+          content='Rafael Galdino da Silva, Cientista da Computação e Desenvolvedor Web Fullstack. Node.js, React, Next.js e TypeScript.'
         />
         <meta
           name='author'
@@ -25,19 +22,19 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           name='keywords'
-          content='portoflio, webdev, web, react, next, developer, programmer'
+          content='portfólio, ciência da computação, desenvolvimento web, react, next, fullstack'
         />
         <meta
           property='og:site_name'
-          content='Rafael Galdino da Silva - Portfolio'
+          content='Rafael Galdino da Silva - Portfólio'
         />
         <meta
           property='og:title'
-          content='Rafael Galdino da Silva - Portfolio'
+          content='Rafael Galdino da Silva - Portfólio'
         />
         <meta
           property='og:description'
-          content='Rafael Galdino da Silva, Fullstack Developer, NodeJS, ReactJS, NextJS, Typescript and more'
+          content='Rafael Galdino da Silva, Cientista da Computação e Desenvolvedor Web Fullstack. Node.js, React, Next.js e TypeScript.'
         />
         <meta
           property='og:image'

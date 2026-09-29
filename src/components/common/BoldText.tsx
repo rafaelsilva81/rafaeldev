@@ -1,19 +1,7 @@
-import React, { ReactElement } from 'react';
-import { useAtom } from 'jotai';
-import { colorsAtom, selectedAtom } from '../../lib/atoms';
-import { JsxChild } from 'typescript';
+import { ReactNode } from "react";
 
-const BoldText = ({ children }: { children: React.ReactNode }) => {
-  const [colors] = useAtom(colorsAtom);
-  const [selected] = useAtom(selectedAtom);
-
-  return (
-    <strong
-      className='font-bold'
-      style={{ color: colors[selected] }}>
-      {children}
-    </strong>
-  );
-};
+const BoldText = ({ children }: { children: ReactNode }) => (
+  <strong className="text-accent font-bold">{children}</strong>
+);
 
 export default BoldText;

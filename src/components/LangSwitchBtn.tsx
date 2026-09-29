@@ -1,38 +1,25 @@
-import Image from "next/image";
-import LightModeIcon from "../assets/LightModeIcon.svg";
-import DarkModeIcon from "../assets/DarkModeIcon.svg";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAtom } from "jotai";
-import {
-  colorsAtom,
-  preferredLanguageAtom,
-  prefersDarkAtom,
-  selectedAtom,
-} from "../lib/atoms";
-import { motion } from "framer-motion";
-
-const usaEmoji = "🇺🇸";
-const brEmoji = "🇧🇷";
+import { preferredLanguageAtom } from "../lib/atoms";
 
 const LangSwitchBtn = () => {
-  const [colors] = useAtom(colorsAtom);
-  const [selected] = useAtom(selectedAtom);
   const [lang, setLang] = useAtom(preferredLanguageAtom);
+  const label = lang === "pt" ? "Switch to English" : "Mudar para português";
 
   return (
-    <motion.div
-      animate={{ x: 0, opacity: 1 }}
-      initial={{ x: -100, opacity: 0 }}
-      transition={{ delay: 1.2, duration: 0.3 }}
-      className="flex items-center"
+    <button
+      type="button"
+      onClick={() => setLang(lang === "en" ? "pt" : "en")}
+      className="control-button gap-2 px-3"
+      aria-label={label}
+      title={label}
     >
-      <button
-        onClick={() => setLang(lang === "en" ? "pt" : "en")}
-        className="flex items-center w-8 h-8 p-2 transition ease-in-out rounded-lg hover:opacity-80"
-        style={{ background: colors[selected] }}
-      >
-        {lang === "en" ? brEmoji : usaEmoji}
-      </button>
-    </motion.div>
+      <FontAwesomeIcon icon={faLanguage} className="h-8 w-8" aria-hidden="true" />
+      <span className="w-5 text-base font-bold" aria-hidden="true">
+        {lang === "pt" ? "EN" : "PT"}
+      </span>
+    </button>
   );
 };
 

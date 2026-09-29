@@ -1,6 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import BoldText from './BoldText';
 
 const ContactElement = ({
   icon,
@@ -14,17 +13,15 @@ const ContactElement = ({
   return (
     <a
       href={link}
+      className='contact-link'
       rel='noopener noreferrer'
       target='_blank'>
-      <div className='flex gap-2 items-center text-dark dark:text-light leading-none hover:opacity-70 transition ease-in-out'>
-        <BoldText>
-          <FontAwesomeIcon
-            icon={icon}
-            className='text-lg'
-          />
-        </BoldText>
-        <span className='text-lg font-semibold'> {name} </span>
-      </div>
+      <FontAwesomeIcon
+        icon={icon}
+        className='text-accent h-5 w-6 shrink-0'
+        aria-hidden='true'
+      />
+      <span className='min-w-0 break-words'> {name} </span>
     </a>
   );
 };
