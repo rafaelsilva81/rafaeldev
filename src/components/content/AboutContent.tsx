@@ -8,7 +8,9 @@ const AboutContent = () => {
 
   return (
     <>
-      <h1 className="section-heading">{isPortuguese ? "Sobre mim" : "About me"}</h1>
+      <h1 className="section-heading">
+        {isPortuguese ? "Sobre mim" : "About me"}
+      </h1>
       <p className="body-copy">
         {isPortuguese
           ? "Sou formado em Ciência da Computação e minha paixão por tecnologia começou na infância, com o desenvolvimento de jogos. Aos 15 anos, descobri o desenvolvimento web e comecei a aprender HTML, CSS, JavaScript e PHP."
@@ -19,10 +21,9 @@ const AboutContent = () => {
           ? "Desde então, continuo aprofundando meus conhecimentos em desenvolvimento web moderno, trabalhando com "
           : "Since then, I have continued to deepen my knowledge of modern web development, working with "}
         <BoldText>
-          React, Next.js, Node.js, TypeScript, REST, MongoDB, Git, Firebase
-          {isPortuguese ? " e " : ", and "}Tailwind CSS
+          React, Next.js, Node.js, TypeScript, REST, MongoDB, Tailwind CSS{" "}
+          {isPortuguese ? " e muito mais." : ", and more."}
         </BoldText>
-        .
       </p>
       <p className="body-copy">
         {isPortuguese

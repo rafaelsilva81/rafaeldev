@@ -22,7 +22,7 @@ const HomeContent = () => {
       </p>
       <p className="body-copy">
         {isPortuguese
-          ? "Sou do Brasil e me interesso por todo tipo de tecnologia, com foco em desenvolvimento web moderno. Uso meus conhecimentos para construir soluções de software elegantes com as tecnologias mais recentes."
+          ? "Me interesso por todo tipo de tecnologia mas com foco em desenvolvimento web moderno. Uso meus conhecimentos para construir soluções de software elegantes com as tecnologias mais recentes."
           : "Based in Brazil, I am interested in all kinds of technology, with a focus on modern web development. I use my knowledge to build thoughtful software solutions with the latest technologies."}
       </p>
       <div className="contact-links">
